@@ -1,0 +1,240 @@
+###############################################################################
+#
+# IAR ELF Linker V9.32.2.340/W64 for ARM                  24/May/2023  09:27:56
+# Copyright 2007-2023 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\user\3D Objects\Interface\LED blink\Debug\Exe\LED
+#        blink.out_nochecksum
+#    Map file     =
+#        C:\Users\user\3D Objects\Interface\LED blink\Debug\List\LED blink.map
+#    Command line =
+#        -f "C:\Users\user\3D Objects\Interface\LED blink\Debug\Exe\LED
+#        blink.out_nochecksum.rsp" ("C:\Users\user\3D Objects\Interface\LED
+#        blink\Debug\Obj\main.o" "C:\Users\user\3D Objects\Interface\LED
+#        blink\Debug\Obj\system.o" --no_out_extension -o "C:\Users\user\3D
+#        Objects\Interface\LED blink\Debug\Exe\LED blink.out_nochecksum"
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map "C:\Users\user\3D Objects\Interface\LED blink\Debug\List\LED
+#        blink.map" --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/NXP/LPC2124.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale --cpu=ARM7TDMI-S
+#        --fpu=None)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x1fb] |
+                [from 0x200 to 0x3'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block SVC_STACK with size = 16, alignment = 8 { };
+define block IRQ_STACK with size = 80, alignment = 8 { };
+define block FIQ_STACK with size = 16, alignment = 8 { };
+define block UND_STACK with size = 16, alignment = 8 { };
+define block ABT_STACK with size = 16, alignment = 8 { };
+define block HEAP with size = 4K, alignment = 8 { };
+"P2":  place in [from 0x4000'0000 to 0x4000'003f] |
+                [from 0x4000'0120 to 0x4000'3fdf] {
+          rw, block CSTACK, block SVC_STACK, block IRQ_STACK, block FIQ_STACK,
+          block UND_STACK, block ABT_STACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw            in "P2"
+  section .crp  in "P3"
+
+
+  Section      Kind         Address   Size  Object
+  -------      ----         -------   ----  ------
+"A0":                                 0x40
+  .intvec      ro code          0x0   0x40  cstartup.o [3]
+                             - 0x40   0x40
+
+"P1", part 1 of 2:                   0x13c
+  .text        ro code         0x40   0xa8  main.o [1]
+  .text        ro code         0xe8   0x94  system.o [1]
+                            - 0x17c  0x13c
+
+"P1", part 2 of 2:                   0x104
+  .text        ro code        0x200   0x58  cstartup.o [3]
+  Veneer       ro code        0x258    0xc  - Linker created -
+  Veneer       ro code        0x264    0xc  - Linker created -
+  Veneer       ro code        0x270    0xc  - Linker created -
+  .text        ro code        0x27c   0x30  cmain.o [3]
+  .text        ro code        0x2ac    0x4  low_level_init.o [2]
+  Veneer       ro code        0x2b0   0x10  - Linker created -
+  .text        ro code        0x2c0    0xa  exit.o [2]
+  .text        ro code        0x2cc   0x20  exit.o [4]
+  .text        ro code        0x2ec   0x10  cexit.o [3]
+  .text        ro code        0x2fc    0x4  vectortrap.o [3]
+  .text        ro code        0x300    0x4  xreturnswi.o [4]
+                            - 0x304  0x104
+
+"P2":                                0x860
+  CSTACK                0x4000'0120  0x800  <Block>
+    CSTACK     uninit   0x4000'0120  0x800  <Block tail>
+  IRQ_STACK             0x4000'0920   0x50  <Block>
+    IRQ_STACK  uninit   0x4000'0920   0x50  <Block tail>
+  FIQ_STACK             0x4000'0970   0x10  <Block>
+    FIQ_STACK  uninit   0x4000'0970   0x10  <Block tail>
+                      - 0x4000'0980  0x860
+
+Absolute sections, part 1 of 4:        0xc
+  .noinit      uninit   0xe000'4004    0x4  main.o [1]
+  .noinit      uninit   0xe000'4008    0x4  main.o [1]
+  .noinit      uninit   0xe000'400c    0x4  main.o [1]
+                      - 0xe000'4010    0xc
+
+Absolute sections, part 2 of 4:        0xc
+  .noinit      uninit   0xe002'8004    0x4  main.o [1]
+  .noinit      uninit   0xe002'8008    0x4  main.o [1]
+  .noinit      uninit   0xe002'800c    0x4  main.o [1]
+                      - 0xe002'8010    0xc
+
+Absolute sections, part 3 of 4:        0x4
+  .noinit      uninit   0xe002'c000    0x4  main.o [1]
+                      - 0xe002'c004    0x4
+
+Absolute sections, part 4 of 4:       0x10
+  .noinit      uninit   0xe01f'c080    0x4  system.o [1]
+  .noinit      uninit   0xe01f'c084    0x4  system.o [1]
+  .noinit      uninit   0xe01f'c088    0x4  system.o [1]
+  .noinit      uninit   0xe01f'c08c    0x4  system.o [1]
+                      - 0xe01f'c090   0x10
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x17c        0x1fb      0x80
+        0x304     0x3'ffff  0x3'fcfc
+  0x4000'0000  0x4000'003f      0x40
+  0x4000'0980  0x4000'3fdf    0x3660
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw data  rw data
+                                         (abs)
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\user\3D Objects\Interface\LED blink\Debug\Obj: [1]
+    main.o                168                28
+    system.o              148                16
+    -------------------------------------------
+    Total:                316                44
+
+dl4t_tln.a: [2]
+    exit.o                 10
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                 14
+
+rt4t_al.a: [3]
+    cexit.o                16
+    cmain.o                48
+    cstartup.o            152
+    vectortrap.o            4
+    -------------------------------------------
+    Total:                220
+
+shs_l.a: [4]
+    exit.o                 32
+    xreturnswi.o            4
+    -------------------------------------------
+    Total:                 36
+
+    Gaps                    2
+    Linker created         52    2'144
+-----------------------------------------------
+    Grand Total:          640    2'144       44
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address  Size  Type      Object
+-----                      -------  ----  ----      ------
+?main                        0x27c        Code  Gb  cmain.o [3]
+Abort_Handler                0x2fc        Code  Wk  vectortrap.o [3]
+CSTACK$$Base           0x4000'0120         --   Gb  - Linker created -
+CSTACK$$Limit          0x4000'0920         --   Gb  - Linker created -
+FIQ_Handler                  0x2fc        Code  Wk  vectortrap.o [3]
+FIQ_STACK$$Base        0x4000'0970         --   Gb  - Linker created -
+FIQ_STACK$$Limit       0x4000'0980         --   Gb  - Linker created -
+Hyp_Handler                  0x2fc        Code  Wk  vectortrap.o [3]
+IRQ_Handler                  0x2fc        Code  Wk  vectortrap.o [3]
+IRQ_STACK$$Base        0x4000'0920         --   Gb  - Linker created -
+IRQ_STACK$$Limit       0x4000'0970         --   Gb  - Linker created -
+Prefetch_Handler             0x2fc        Code  Wk  vectortrap.o [3]
+Region$$Table$$Base            0x0         --   Gb  - Linker created -
+Region$$Table$$Limit           0x0         --   Gb  - Linker created -
+SWI_Handler                  0x2fc        Code  Wk  vectortrap.o [3]
+T0PR                   0xe000'400c   0x4  Data  Wk  main.o [1]
+T0TC                   0xe000'4008   0x4  Data  Wk  main.o [1]
+Undefined_Handler            0x2fc        Code  Wk  vectortrap.o [3]
+_A_IO0CLR              0xe002'800c   0x4  Data  Wk  main.o [1]
+_A_IO0DIR              0xe002'8008   0x4  Data  Wk  main.o [1]
+_A_IO0SET              0xe002'8004   0x4  Data  Wk  main.o [1]
+_A_PINSEL0             0xe002'c000   0x4  Data  Wk  main.o [1]
+_A_PLLCFG              0xe01f'c084   0x4  Data  Wk  system.o [1]
+_A_PLLCON              0xe01f'c080   0x4  Data  Wk  system.o [1]
+_A_PLLFEED             0xe01f'c08c   0x4  Data  Wk  system.o [1]
+_A_PLLSTAT             0xe01f'c088   0x4  Data  Wk  system.o [1]
+_A_T0TCR               0xe000'4004   0x4  Data  Wk  main.o [1]
+__cmain                      0x27c        Code  Gb  cmain.o [3]
+__exit                       0x2cc  0x20  Code  Gb  exit.o [4]
+__iar_program_start          0x200        Code  Gb  cstartup.o [3]
+__iar_return_from_swi        0x300   0x4  Code  Gb  xreturnswi.o [4]
+__low_level_init             0x2ad   0x4  Code  Gb  low_level_init.o [2]
+__vector                       0x0        Data  Gb  cstartup.o [3]
+_call_main                   0x294        Code  Gb  cmain.o [3]
+_exit                        0x2ec        Code  Gb  cexit.o [3]
+clock_init                    0xe9  0x94  Code  Gb  system.o [1]
+delay                         0xa7  0x1e  Code  Gb  main.o [1]
+exit                         0x2c1   0xa  Code  Gb  exit.o [2]
+initial                       0x51  0x2e  Code  Gb  main.o [1]
+main                          0x41  0x10  Code  Gb  main.o [1]
+on_off                        0x7f  0x28  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\user\3D Objects\Interface\LED blink\Debug\Obj
+[2] = dl4t_tln.a
+[3] = rt4t_al.a
+[4] = shs_l.a
+
+    640 bytes of readonly  code memory
+  2'144 bytes of readwrite data memory (+ 44 absolute)
+
+Errors: none
+Warnings: none
