@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home page</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+      integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="navigator">
+        <div class="navigator-left">
+          <h3 id="name"></h3>
+        </div>
+        <div class="navigator-right">
+          <img id="image" />
+          <button onclick="logout()" class="logoutButton">Logout</button>
+        </div>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="Message">
+        <label
+          ><font size="6" style="color: black">Message to Encrypt</font></label
+        >
+        <a><font size="6">Message to Decrypt</font></a>
+      </div>
+      <div class="input-box">
+        <textarea
+          id="MessageEncryption"
+          name="MessageEncryption"
+          rows="10"
+          cols="60"
+        ></textarea>
+        <textarea
+          id="MessageDecryption"
+          name="MessageDecryption"
+          rows="10"
+          cols="60"
+        ></textarea>
+      </div>
+      <div class="input-box">
+        <button type="submit" class="button1"><b>Encryption Key</b></button>
+        <textarea
+          id="EncryptionKey"
+          name="EncryptionKey"
+          rows="2"
+          cols="30"
+        ></textarea>
+        <button type="submit" class="button2"><b>Decryption Key</b></button>
+        <textarea
+          id="DecryptionKey"
+          name="DecryptionKey"
+          rows="2"
+          cols="30"
+        ></textarea>
+      </div>
+      <button type="submit" class="button3" onclick="encrypt()">
+        <b>Encrypt</b>
+      </button>
+      <button type="submit" class="button4"><b>Copy Encryption</b></button>
+      <button type="submit" class="button5" onclick="decrypt()">
+        <b>Decrypt</b>
+      </button>
+      <button type="submit" class="button6"><b>Copy Decryption</b></button>
+      <div class="input-box">
+        <textarea
+          id="Ciphertext"
+          name="Ciphertext"
+          rows="10"
+          cols="60"
+        ></textarea>
+        <textarea
+          id="Plaintext"
+          name="Plaintext"
+          rows="10"
+          cols="60"
+        ></textarea>
+      </div>
+
+      <label><b>Choose Algorithm:</b></label>
+      <select name="" id="Algorithm">
+        <option value="OTP">OTP</option>
+        <option value="AES">AES</option>
+        <option value="3DES">3DES</option>
+      </select>
+    </div>
+  </body>
+
+  <script>
+    // Parse query string to see if page request is coming from OAuth 2.0 server.
+    var params = {};
+    var regex = /([^&=]+)=([^&]*)/g,
+      m;
+    while ((m = regex.exec(location.href))) {
+      params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+    if (Object.keys(params).length > 0) {
+      localStorage.setItem("authInfo", JSON.stringify(params));
+    }
+
+    //hide access token
+    window.history.pushState(
+      {},
+      document.title,
+      "/" + "encrypt-decrypt/index.html"
+    );
+    let info = JSON.parse(localStorage.getItem("authInfo"));
+    console.log(JSON.parse * localStorage.getItem("authInfo"));
+    console.log(info["access_token"]);
+    console.log(info["expires_in"]);
+
+    fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+      headers: {
+        Authorization: `Bearer ${info["access_token"]}`,
+      },
+    })
+      .then((data) => data.json())
+      .then((info) => {
+        console.log(info);
+        document.getElementById("name").innerHTML += info.name;
+        document.getElementById("image").setAttribute("src", info.picture);
+      });
+
+    function logout() {
+      fetch(
+        "https://oauth2.googleapis.com/revoke?token=" + info["access_token"],
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded",
+          },
+        }
+      ).then((data) => {
+        location.href = "http://localhost:5500/index.html";
+      });
+    }
+  </script>
+</html>
