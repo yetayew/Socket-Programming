@@ -58,13 +58,13 @@ body {
 	
 }
 
-.input-box{
+.input-box { 
 	padding:7px;
 	
 }
 
 
-.wrapper{
+.wrapper {
 	height:70vh;
 	text-align: center;
 	background-color: #e4e9ec;
@@ -74,7 +74,7 @@ body {
 	transition: scale(0);
 	
 }
-.wrapper.active-popup{
+.wrapper.active-popup {
 	transition: scale(1);
 }
 .wrapper.active{
@@ -84,7 +84,7 @@ body {
 	border-radius: 20px;
 	opacity: 0.9;	
 }
-.wrapper.form-box{
+.wrapper.form-box {
 	width: 100%;
 	padding: 40px;
 	text-align: center;
@@ -93,15 +93,15 @@ body {
 	opacity: 0.9;
 	
 }
-.wrapper.form-box.login{
+.wrapper.form-box.login {
 	transition: transform .18s ease;
 	transform: translateX(0);
 }
-.wrapper.active.form-box.login{
+.wrapper.active.form-box.login {
 	transition: none;
 	transform: translateX(-400px);
 }
-.wrapper.form-box.main{
+.wrapper.form-box.main {
 	position: absolute;
 	transition: none;
 	transform: translateX(400px);
@@ -112,7 +112,7 @@ body {
 	opacity: 0.9;
 	
 }
-.wrapper.active.form-box.main{
+.wrapper.active.form-box.main {
 	transition: none;
 	transform: translateX(-400px);
 }
@@ -126,7 +126,7 @@ body {
 	background: black;
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	font: size 1.2em;
 	color: #fff;
@@ -134,7 +134,7 @@ body {
 	margin-left: 40px;
 	transition: .5s;
 }
-button:hover{
+button:hover {
 	background-color: #178800;
 	transition: 0.5s;
 }
@@ -163,14 +163,14 @@ button:hover{
 	justify-content:space-around;
 	text-decoration: none;
 }
-.main{
+.main {
 	height:0vh;
 	padding-top: 2em;
 	text-align: center;
 	border-radius: 20px;
 	opacity: 0.9;	
 }
-.button1{
+.button1 {
 	margin-top: 5px;
 	margin-bottom: 10px;
 	width:13em;
@@ -179,14 +179,14 @@ button:hover{
 	background: black;
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
 	margin-left: 40px;
 	transition: .5s;
 }
-.button2{
+.button2 {
 	margin-top: 5px;
 	margin-bottom: 10px;
 	width:13em;
@@ -195,7 +195,7 @@ button:hover{
 	background: black;
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
@@ -211,13 +211,13 @@ button:hover{
 	background: black;
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
 	transition: .5s;
 }
-.button4{
+.button4 {
 	margin-top: 5px;
 	margin-bottom: 10px;
 	width:13em;
@@ -226,7 +226,7 @@ button:hover{
 	background: rgb(173, 4, 4);
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
@@ -242,14 +242,14 @@ button:hover{
 	background: black;
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
 	margin-left: 60px;
 	transition: .5s;
 }
-.button6{
+.button6 {
 	margin-top: 5px;
 	margin-bottom: 10px;
 	width:13em;
@@ -258,14 +258,14 @@ button:hover{
 	background: rgb(134, 3, 3);
 	border:2px solid #fff;
 	outline:none;
-	border-radius:6px
+	border-radius:6px;
 	cursor: pointer;
 	color: #fff;
 	font-weight: 500;
 	margin-left: 20px;
-	transition: .5s;
+	transition: 0.5s;
 }
-#Algorithm{
+#Algorithm {
 	width: 7rem;
 	height: 1.5rem;
 }
